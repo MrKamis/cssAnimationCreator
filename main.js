@@ -6,6 +6,8 @@
     let height = parseInt(window.innerHeight);
     let taps = [];
     let animationNumber = 1;
+    let animationDuration = 10000;
+    let animationTimingFunciton = 'ease';
     let mainClick = (x, y) => {
         let point = document.createElement('div');
         point.classList.add('point');
@@ -42,9 +44,37 @@
 
         document.getElementById('main').style.width = width - 200 + 'px';
         document.getElementById('main').style.height = height + 'px';
+        document.getElementById('modal').style.width = width - 200 + 'px';
         document.getElementById('main').addEventListener('click', e => {
             mainClick(e.clientX, e.clientY);
         });
+        document.getElementById('option').addEventListener('click', () => {
+            if( document.getElementById('modal').style.display == 'block'){
+                document.getElementById('modal').style.display = 'none';
+            }else{
+                document.getElementById('modal').style.display = 'block';
+                let modalContent = document.getElementById('modalContent');
+                let TMP = `<label>
+                    Długość animacji w ms: <input type="number" id="dlugoscAnimacji" value="5000">
+                </label><br>
+                <label>
+                    Prędkość na początku i na koncu: <select id="predkoscAnimacji">
+                        <option value="linear">linear</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                        <option value="ease">ease</option>
+                    </select>
+                </label>
+                <button id="checkOptions">Zatwierdź</button>`;
+                modalContent.innerHTML = TMP;
+                document.getElementById('checkOptions').addEventListener('click', () => {
+                    animationDuration = document.getElementById('dlugoscAnimacji').value;
+                    animationTimingFunciton = document.getElementById('predkoscAnimacji').value;
+                    document.getElementById('modal').style.display = 'none';
+                });
+            }
+        });
+
 
         document.getElementById('start').addEventListener('click', () => {
             let TMP = Math.round(100 / taps.length);
@@ -61,7 +91,7 @@
             }
             test += '}';
             test += `\n.animation` + animationNumber + ` {
-                animation-name: yourAnimation` + animationNumber + `; animation-duration: 10s; animatio
+                animation-name: yourAnimation` + animationNumber + `; animation-duration: ` + animationDuration + `ms; animation-timing-function: ` + animationTimingFunciton + `;
             }`;
             style.innerHTML = test;
             document.getElementsByTagName('head')[0].appendChild(style);

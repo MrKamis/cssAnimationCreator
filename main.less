@@ -67,3 +67,38 @@ body {
     top: 0;
     left: 0;
 }
+.modal {
+    position: fixed;
+    left: 200px;
+    top: 0px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    #modalContent {
+        width: 90%;
+        margin: 5%;
+        margin-top: 10px;
+        height: 90vh;
+        overflow-y: scroll;
+        background-color: #fff;
+        color: #000;
+        padding: 20px;
+        line-height: 30px;
+    }
+    input {
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid Gray;
+    }
+    button {
+        padding: 5px;
+        transition-duration: 500ms;
+        border: 1px solid Gray;
+        background-color: #fff;
+        &:hover {
+            transition-duration: 500ms;
+            background-color: Gray;
+            cursor: pointer;
+        }
+    }
+}
