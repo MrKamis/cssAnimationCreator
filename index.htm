@@ -21,8 +21,26 @@
         <div id="option">
             <span class="mustHide">Opcje</span>
             <span class="icon">&diam;</span>
+            <div id="options">
+                <label>
+                    Czas trwania(ms): 
+                    <br>
+                    <input type="number" id="animationDuration">
+                </label>
+                <label>
+                    Prędkość: 
+                    <br>
+                    <select id="animationTimingFunction">
+                        <option value="ease">ease</option>
+                        <option value="linear">linear</option>
+                        <option valu="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                    </select>
+                </label>
+                <button id="checkOptions">Zatwierdź</button>
+            </div>
         </div>
-        <div>
+        <div id="generateCode">
             <span class="mustHide">Generuj kod</span>
             <span class="icon">&elinters;</span>
         </div>
@@ -31,6 +49,33 @@
             <ol id="list">
                 <!-- <li>Animation</li> -->
             </ol>
+        </div>
+        <div class="editTap" id="editTap">
+            
+        </div>
+        <div id="config">
+            KONFIGURACJA STRONY GŁÓWNEJ
+            <div id="options">
+                <label>
+                    Szerokośc: 
+                    <br>
+                    <input type="number" id="mainWidth">
+                </label>
+                <label>
+                    Wysokość: 
+                    <br>
+                    <input type="number" id="mainHeight">
+                </label>
+                <label>
+                    Procent czy Px: 
+                    <br>
+                    <select id="procentVsPx">
+                        <option value="px">px</option>
+                        <!-- <option value="procent">procent</option> -->
+                    </select>
+                </label>
+                <button id="changeMainOptions">Zatwierdź</button>
+            </div>
         </div>
     </div>
     <div class="main" id="main">

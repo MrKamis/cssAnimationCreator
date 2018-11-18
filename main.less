@@ -9,6 +9,7 @@ body {
     color: #000;
 }
 .lBar {
+    overflow-y: scroll;
     float: left;
     transition-duration: 500ms;
     width: 200px;
@@ -35,7 +36,7 @@ body {
         }
         ol {
             overflow-y: scroll;
-            max-height: 300px;
+            max-height: 150px;
             background-color: #fff;
             width: 98%;
             margin: 1%;
@@ -43,11 +44,102 @@ body {
             &:hover {
                 color: #000;
             }
+            li {
+                transition-duration: 300ms;
+            }
+            li:hover  {
+                transition-duration: 300ms;
+                cursor: pointer;
+                background-color: gray;
+                border-radius: 5px;
+            }
+        }
+    }
+    .taps:hover {
+        color: #000;
+    }
+    #options {
+        width: 98%;
+        margin: 1%;
+        background-color: #fff;
+        max-height: 100px;
+        overflow-y: scroll;
+        &:hover {
+            color: #000;
+        }
+        #checkOptions {
+            transition-duration: 500ms;
+            border: 1px solid Gray;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 1px;
+            width: 98%;
+            cursor: pointer;
+            &:hover {
+                transition-duration: 500ms;
+                color: #fff;
+                background-color: #000;
+            }
+        }
+        select, input {
+            transition-duration: 500ms;
+            border: 1px solid Gray;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 1px;
+            width: 98%;
+        }
+    }
+    .editTap {
+        display: none;
+        .options {
+            color: #000;
+            background-color: #fff;
+            max-height: 150px;
+            overflow-y: scroll;
+            input, select, button {
+                transition-duration: 500ms;
+                border: 1px solid Gray;
+                padding: 5px;
+                border-radius: 3px;
+                margin: 1px;
+                width: 98%;
+            }
+            button:hover {
+                transition-duration: 500ms;
+                color: #fff;
+                background-color: #000;
+                cursor: pointer;
+            }
+        }
+        ul li {
+            list-style: none;
+            border-bottom: 1px solid gray;
+        }
+    }
+    #config {
+        #options {
+            background-color: #fff;
+            select, input, button {
+                transition-duration: 500ms;
+                border: 1px solid Gray;
+                padding: 5px;
+                border-radius: 3px;
+                margin: 1px;
+                width: 98%;
+            }
+            button:hover {
+                transition-duration: 500ms;
+                color: #fff;
+                background-color: #000;
+                cursor: pointer;
+            }
         }
     }
 }
 .main {
     float: left;
+    border: 1px solid Black;
 }
 .point {
     width: 5px;
@@ -57,15 +149,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 .test {
     width: 15px;
     height: 15px;
     background-color: Blue;
     border-radius: 5px;
-    position: absolute;
+    //position: absolute;
     top: 0;
     left: 0;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
 }
 .modal {
     position: fixed;
@@ -74,6 +170,7 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     display: none;
+    z-index: 5;
     #modalContent {
         width: 90%;
         margin: 5%;
