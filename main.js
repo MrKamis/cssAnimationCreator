@@ -58,10 +58,18 @@
             document.getElementsByTagName('li')[x].addEventListener('click', () => {
                 editTap(x);
             });
+            document.getElementsByTagName('li')[x].addEventListener('mouseover', () => {
+                document.getElementsByClassName('point')[x].style.width = '15px';
+                document.getElementsByClassName('point')[x].style.height = '15px';
+            });
+            document.getElementsByTagName('li')[x].addEventListener('mouseleave', () => {
+                document.getElementsByClassName('point')[x].style.width = '5px';
+                document.getElementsByClassName('point')[x].style.height = '5px';
+            });
         }
     };
     window.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('menu').addEventListener('click', () => {
+        /* document.getElementById('menu').addEventListener('click', () => {
             if(menu){
                 document.getElementById('lBar').style.width = '50px';
                 document.getElementById('taps').style.display = 'none';
@@ -80,7 +88,7 @@
                 }
             }
             menu = !menu;
-        });
+        }); */
 
         document.getElementById('main').style.width = width - 200 + 'px';
         document.getElementById('main').style.height = height + 'px';
@@ -197,6 +205,9 @@
             }else{
                 return false;
             }
+        });
+        document.getElementById('restart').addEventListener('click', () => {
+            location.reload();
         });
     });
 })();
